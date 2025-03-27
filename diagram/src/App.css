@@ -28,7 +28,9 @@
 .workspace {
   flex: 1;
   overflow: auto;
-  background-color: #111;
+  width: 100%;
+  /* background-color: #111; */
+  background-color: #222222;
   /* 패턴 */
   background-image:
     linear-gradient(rgba(255,255,255,.07) 2px, transparent 2px),
@@ -51,4 +53,15 @@
 
 .scrollarea {
   overflow-y: auto;
+}
+
+.sidebar-item {
+  width: 40px;
+}
+
+.testDiagram {
+  background-color: #9e9e9e;
+  border: 2px solid black;
+  width: 10px;
+  height: 10px;
 }

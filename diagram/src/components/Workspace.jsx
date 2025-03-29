@@ -1,20 +1,22 @@
-import React, { useContext, useEffect, useState, useRef } from 'react';
-import { DiagramContext } from '../App';
+import React, { useEffect, useState, useRef } from 'react';
+import { useSelector } from 'react-redux';
 
 const Workspace = () => {
-  const { clickedVal } = useContext(DiagramContext);  // 사이드바 선택값
   const [isDrawing, setIsDrawing] = useState(false);  // 드래그 상태
   const [startX, setStartX] = useState(0);            // 드래그 시작 x 좌표
-  const [startY, setStartY] = useState(0);            // 드래그 시작 y 좌표
+  const [startY, setStartY] = useState(0);            //  드래그 시작 y 좌표
   const [currentX, setCurrentX] = useState(0);        // 현재 x 좌표
   const [currentY, setCurrentY] = useState(0);        // 현재 y 좌표
   const canvasRef = useRef(null);                     // 캔버스 참조
 
+  const item = useSelector((state) => state.sidebarSelectState.item); // 사이드바 선택 아이템 가져오기
+
+  // target 값 변경 시 동작
   useEffect(() => {
-    if (clickedVal) {
-      alert(`선택 값: ${clickedVal}`);
+    if (item) {
+      alert(`선택 값: ` + item);
     }
-  }, [clickedVal]);
+  }, [item]);
 
   // TODO::사이드바에서 도형 선택시에만 동작하도록.
   const handleMouseDown = (e) => {
